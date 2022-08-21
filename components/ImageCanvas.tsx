@@ -15,7 +15,7 @@ const ImageCanvas = (props: Props) => {
   const [topResultLabel, setLabel] = useState("");
   const [topResultConfidence, setConfidence] = useState("");
   const [inferenceTime, setInferenceTime] = useState("");
-  
+
   // Load the image from the IMAGE_URLS array
   const getImage = () => {
     var sampleImageUrls: Array<{ text: string; value: string }> = IMAGE_URLS;
@@ -24,7 +24,7 @@ const ImageCanvas = (props: Props) => {
   }
 
   // Draw image and other  UI elements then run inference
-  const displayImageAndRunInference = () => { 
+  const displayImageAndRunInference = () => {
     // Get the image
     image = new Image();
     var sampleImage = getImage();
@@ -41,7 +41,7 @@ const ImageCanvas = (props: Props) => {
     image.onload = () => {
       ctx!.drawImage(image, 0, 0, props.width, props.height);
     }
-   
+
     // Run the inference
     submitInference();
   };
@@ -49,7 +49,7 @@ const ImageCanvas = (props: Props) => {
   const submitInference = async () => {
 
     // Get the image data from the canvas and submit inference.
-    var [inferenceResult,inferenceTime] = await inferenceSqueezenet(image.src);
+    var [inferenceResult, inferenceTime] = await inferenceSqueezenet(image.src);
 
     // Get the highest confidence.
     var topResult = inferenceResult[0];
@@ -66,9 +66,9 @@ const ImageCanvas = (props: Props) => {
       <button
         className={styles.grid}
         onClick={displayImageAndRunInference} >
-        Run Squeezenet inference
+        Run ResNet50 inference
       </button>
-      <br/>
+      <br />
       <canvas ref={canvasRef} width={props.width} height={props.height} />
       <span>{topResultLabel} {topResultConfidence}</span>
       <span>{inferenceTime}</span>
