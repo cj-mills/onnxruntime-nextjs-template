@@ -30,7 +30,7 @@ yarn-error.log*
 .env.production.local   
 
 /node_modules/
-/package-lock.json
+# /package-lock.json
 /.eslintrc.json
 /*.d.ts
 
