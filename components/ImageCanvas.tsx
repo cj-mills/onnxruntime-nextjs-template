@@ -66,7 +66,7 @@ const ImageCanvas = (props: Props) => {
       <button
         className={styles.grid}
         onClick={displayImageAndRunInference} >
-        Run ResNet50 inference
+        Run MobileNetv2 inference
       </button>
       <br />
       <canvas ref={canvasRef} width={props.width} height={props.height} />
