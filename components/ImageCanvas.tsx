@@ -57,7 +57,8 @@ const ImageCanvas = (props: Props) => {
     // Update the label and confidence
     setLabel(topResult.name.toUpperCase());
     setConfidence(topResult.probability);
-    setInferenceTime(`Inference speed: ${inferenceTime} milliseconds`);
+    var fps = 1000 / inferenceTime;
+    setInferenceTime(`Inference speed: ${inferenceTime.toFixed(2)} milliseconds (i.e., ${fps.toFixed(2)}fps)`);
 
   };
 
