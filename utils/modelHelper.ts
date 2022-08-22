@@ -27,7 +27,7 @@ async function runInference(session: ort.InferenceSession, preprocessedData: any
   // Get the end time to calculate inference time.
   const end = new Date();
   // Convert to seconds.
-  const inferenceTime = (end.getTime() - start.getTime()) / 1000;
+  const inferenceTime = (end.getTime() - start.getTime());
   // Get output results with the output name from the model export.
   const output = outputData[session.outputNames[0]];
   //Get the softmax of the output data. The softmax transforms values to be between 0 and 1
